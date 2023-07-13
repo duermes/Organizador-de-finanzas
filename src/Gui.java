@@ -16,7 +16,7 @@ public class Gui implements ActionListener {
         button.addActionListener(this);
 
         panel = new JPanel();
-        label = new JLabel("Bienvenido");
+        label = new JLabel("Calculdora de finanzas personales");
 
         panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 100, 300));
         panel.setLayout(new GridLayout(0, 1));
