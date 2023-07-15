@@ -18,6 +18,7 @@ public class GuiDemo {
     private JLabel ahorrar;
     private JLabel gastos;
     private GuiResumen gui2;
+    private User usuario;
 
     public GuiDemo() {
         JFrame frame = new JFrame("Calculadora para finanzas personales");
@@ -42,17 +43,47 @@ public class GuiDemo {
                 frame2.setContentPane(gui2.getPanel1());
                 frame2.setSize(700,450);
                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.pack();
-                frame.setVisible(false);
-                frame2.setVisible(true);
-
                 gui2.getList1().setForeground(Color.WHITE);
                 gui2.getAñadirGastos().setForeground(Color.WHITE);
                 gui2.getTitulo().setForeground(Color.WHITE);
                 gui2.getAceptarButton().setForeground(Color.BLACK);
 
+
+                frame.pack();
+                frame.setVisible(false);
+                frame2.setVisible(true);
+                registerInfo();
+
+                //
+
             }
         });
+        salirButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
+    }
+
+    private void registerInfo() {
+        String nombre = tfNombre.getText();
+        double balance = Double.parseDouble(tfPresupuesto.getText());
+        int ahorrar = Integer.parseInt(tfAhorrar.getText());
+        int cantidadGastosF = Integer.parseInt(tfGastos.getText());
+
+        if (tfAhorrar.getText().isEmpty()) {
+            usuario = new User(nombre,balance);
+        } else {
+            usuario = new User(nombre,balance,ahorrar);
+            gui2.getLbSave().setText("(%) De Ahorro: "+ Integer.toString(ahorrar)+ " Dinero ahorrando: "+ Double.toString(usuario.getSave()));
+        }
+        usuario.setGastosFijosLength(cantidadGastosF);
+
+        gui2.getLbBalance().setText(Double.toString(usuario.getBalance()));
+        gui2.getLbGastos().setText(Double.toString(usuario.getBalanceUsed()));
+        gui2.getLbRestante().setText(Double.toString(usuario.getBalanceLeft()));
+
     }
 
 

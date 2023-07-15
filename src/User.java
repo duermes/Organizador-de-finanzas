@@ -11,16 +11,20 @@ public class User {
     public User(String name, double balance, double save) {
         this.name = name;
         this.balance = balance;
-        this.balanceLeft = balance;
         this.save = balance*(save/100);
+        this.balanceLeft = this.balance-this.save;
     }
-    public User(String name, double balance) {
+
+     public User(String name, double balance) {
         this.name = name;
         this.balance = balance;
         this.balanceLeft = balance;
         this.save = balance*(0.1); //SEGÚN Google lo recomendable es ahorrar el 10% de tu sueldo
     }
 
+    public double getSave() {
+        return save;
+    }
     public String getName() {
         return name;
     }
@@ -31,8 +35,18 @@ public class User {
     public void addBalance(double amount) {
         balance+=amount;
     }
-
-
+    public double getBalanceLeft() {
+        return balanceLeft;
+    }
+    public double getBalanceUsed() {
+        return balanceUsed;
+    }
+    public void addBalanceUsed(double amount) {
+        balanceUsed+=amount;
+    }
+    public void addBalanceLeft(double amount) {
+        balanceLeft-=amount;
+    }
 
     public void setGastosFijosLength(int length) { //chequear este código
         gastos = new GastosFijos[length]; // establezco la cantidad de gastos
