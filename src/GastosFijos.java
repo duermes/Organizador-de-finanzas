@@ -1,4 +1,4 @@
-public class Gastos {
+public class GastosFijos {
     private String nombre;
     private double costo;
     private int peso;

@@ -1,7 +1,7 @@
 public class User {
     private String name;
     private double balance;
-    private Gastos[] gastos;
+    private GastosFijos[] gastos;
     private double balanceLeft;
     private double balanceUsed;
 
@@ -34,10 +34,10 @@ public class User {
 
 
 
-    public void setGastosLength(int length) { //chequear este código
-        gastos = new Gastos[length]; // establezco la cantidad de gastos
+    public void setGastosFijosLength(int length) { //chequear este código
+        gastos = new GastosFijos[length]; // establezco la cantidad de gastos
         for (int i = 0; i < gastos.length; i++) {
-            gastos[i] = new Gastos(); //Creo instancias de la clase "Gastos"
+            gastos[i] = new GastosFijos(); //Creo instancias de la clase "GastosFijos"
             gastos[i].setNombre("nombre");
             gastos[i].setCosto(0);
             gastos[i].setPeso(0);

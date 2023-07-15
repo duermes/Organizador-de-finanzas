@@ -55,7 +55,7 @@
         </constraints>
         <properties>
           <font name="Segoe Print" size="16" style="0"/>
-          <text value="N° Gastos mensuales"/>
+          <text value="N° GastosFijos mensuales"/>
         </properties>
       </component>
       <component id="75e97" class="javax.swing.JTextField" binding="tfGastos">
