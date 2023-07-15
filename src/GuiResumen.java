@@ -15,7 +15,7 @@ public class GuiResumen {
     private JLabel gastos1;
     private JLabel restante1;
     private JLabel titulo;
-    private JLabel añadirGastos;
+    private JLabel anadirGasto;
     private JTextField tfCosto;
     private JLabel lbCosto;
     private JLabel lbSave;
@@ -24,8 +24,8 @@ public class GuiResumen {
     public JLabel getTitulo() {
         return titulo;
     }
-    public JLabel getAñadirGastos() {
-        return añadirGastos;
+    public JLabel getAnadirGastos() {
+        return anadirGasto;
     }
     public JPanel getPanel1() {
         return panel1;

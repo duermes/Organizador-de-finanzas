@@ -44,7 +44,7 @@ public class GuiDemo {
                 frame2.setSize(700,450);
                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 gui2.getList1().setForeground(Color.WHITE);
-                gui2.getAñadirGastos().setForeground(Color.WHITE);
+                gui2.getAnadirGastos().setForeground(Color.WHITE);
                 gui2.getTitulo().setForeground(Color.WHITE);
                 gui2.getAceptarButton().setForeground(Color.BLACK);
 
