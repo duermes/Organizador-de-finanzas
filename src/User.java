@@ -44,7 +44,7 @@ public class User {
         }
     }
 
-    public void setGasto(int i, String nombre, double costo, int peso) {
+    public void setGastoFijo(int i, String nombre, double costo, int peso) {
         balanceLeft -= costo;
         balanceUsed += costo;
         gastos[i].setNombre(nombre);
@@ -57,7 +57,7 @@ public class User {
         gastos[i].setPeso(peso);
     }
 
-    public void getGastos() {
+    public void getGastosFijos() {
         System.out.println("Dinero restante: "+ balanceLeft);
         System.out.println("Dinero usado: "+ balanceUsed);
         for (int i = 0; i < gastos.length; i++) {

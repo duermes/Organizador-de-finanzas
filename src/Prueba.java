@@ -3,8 +3,8 @@ public class Prueba {
         //Este es un archivo literalmente de PRUEBA donde andaba probando si el código funcionaba o no, el verdadero es el Main
         User lorena = new User("Lorena", 1000, 10);
         lorena.setGastosFijosLength(3);
-        lorena.setGasto(0,"Universidad",900,3);
-        lorena.getGastos();
+        lorena.setGastoFijo(0,"Universidad",900,3);
+        lorena.getGastosFijos();
 
 
     }
