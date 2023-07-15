@@ -40,20 +40,13 @@ public class GuiDemo {
                 gui2 = new GuiResumen();
                 JFrame frame2 = new JFrame("Menú de resumen Calculadora para finanzas personales");
                 frame2.setContentPane(gui2.getPanel1());
-                frame2.setSize(700,500);
+                frame2.setSize(700,450);
                 frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(false);
                 frame2.setVisible(true);
 
-
-                gui2.getRestante().setForeground(Color.WHITE);
-                gui2.getBalance().setForeground(Color.WHITE);
-                gui2.getGastos().setForeground(Color.WHITE);
                 gui2.getList1().setForeground(Color.WHITE);
-                gui2.getBalance1().setForeground(Color.WHITE);
-                gui2.getGastos1().setForeground(Color.WHITE);
-                gui2.getRestante1().setForeground(Color.WHITE);
                 gui2.getAñadirGastos().setForeground(Color.WHITE);
                 gui2.getTitulo().setForeground(Color.WHITE);
                 gui2.getAceptarButton().setForeground(Color.BLACK);
