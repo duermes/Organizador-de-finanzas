@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GuiDemo">
+  <grid id="27dc6" binding="infoPanel" layout-manager="GridLayoutManager" row-count="7" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="15" left="20" bottom="20" right="20"/>
+    <constraints>
+      <xy x="20" y="20" width="743" height="317"/>
+    </constraints>
+    <properties>
+      <background color="-12954252"/>
+      <enabled value="false"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="18811" class="javax.swing.JLabel" binding="Titulo">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="26" style="1"/>
+          <text value="Calculadora de finanzas personales"/>
+        </properties>
+      </component>
+      <component id="c7c3d" class="javax.swing.JLabel" binding="nombre">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+          <text value="Nombre:"/>
+        </properties>
+      </component>
+      <component id="c2619" class="javax.swing.JLabel" binding="presupuesto">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+          <text value="Presupuesto:"/>
+        </properties>
+      </component>
+      <component id="c5058" class="javax.swing.JLabel" binding="ahorrar">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+          <text value="(%) Ahorrar"/>
+        </properties>
+      </component>
+      <component id="b3214" class="javax.swing.JLabel" binding="gastos">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+          <text value="N° Gastos mensuales"/>
+        </properties>
+      </component>
+      <component id="75e97" class="javax.swing.JTextField" binding="tfGastos">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+        </properties>
+      </component>
+      <component id="208db" class="javax.swing.JTextField" binding="tfAhorrar">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="ebb43" class="javax.swing.JTextField" binding="tfPresupuesto">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+        </properties>
+      </component>
+      <component id="11b5" class="javax.swing.JTextField" binding="tfNombre">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+        </properties>
+      </component>
+      <component id="cba61" class="javax.swing.JButton" binding="enviarButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+          <text value="Enviar"/>
+        </properties>
+      </component>
+      <component id="6ee31" class="javax.swing.JButton" binding="salirButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Segoe Print" size="16" style="0"/>
+          <text value="Salir"/>
+        </properties>
+      </component>
+      <vspacer id="6c5be">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+    </children>
+  </grid>
+</form>

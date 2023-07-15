@@ -32,10 +32,11 @@ public class User {
         balance+=amount;
     }
 
-    public void setGastosLength(int length) {
+
+
+    public void setGastosLength(int length) { //chequear este código
         gastos = new Gastos[length]; // establezco la cantidad de gastos
         for (int i = 0; i < gastos.length; i++) {
-
             gastos[i] = new Gastos(); //Creo instancias de la clase "Gastos"
             gastos[i].setNombre("nombre");
             gastos[i].setCosto(0);
@@ -60,7 +61,7 @@ public class User {
         System.out.println("Dinero restante: "+ balanceLeft);
         System.out.println("Dinero usado: "+ balanceUsed);
         for (int i = 0; i < gastos.length; i++) {
-            System.out.println("tipo: "+gastos[i].getNombre());
+            System.out.println(gastos[i].getNombre());
             System.out.println("costo: "+gastos[i].getCosto());
             System.out.println("peso: "+gastos[i].getPeso());
 
@@ -78,10 +79,10 @@ public class User {
         //resumen de gastos mensuales que realiza organizados de mayor a menor segun el peso
         //Dinero restante que queda libre
         if (balanceUsed < 0) {
-            //si mis gastos exceden mi presupuesto mensual
+            //si gastos excede presupuesto mensual
 
         } else {
-            //si me sobra dinero
+            //si sobra dinero
         }
     }
 
