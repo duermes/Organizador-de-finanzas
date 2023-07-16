@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +20,7 @@ public class GuiResumen {
     private JTextField tfCosto;
     private JLabel lbCosto;
     private JLabel lbSave;
+    private JLabel lbAdvertencia;
     User usuario;
 
     public JLabel getTitulo() {
@@ -71,21 +73,32 @@ public class GuiResumen {
 
     public GuiResumen() {
         aceptarButton.addActionListener(new ActionListener() {
+            double nuevoRestante;
+            double nuevoGasto;
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){
             double costo = Double.parseDouble(tfCosto.getText());
             double montoActual = Double.parseDouble(lbRestante.getText());
             double gastosActual = Double.parseDouble(lbGastos.getText());
-            double nuevoRestante = montoActual - costo;
-            double nuevoGasto = gastosActual + costo;
+            try {
+                nuevoRestante = montoActual - costo;
+                if (nuevoRestante < 0) {
+                    throw new BalanceNegativeException();
+                }
+                nuevoGasto = gastosActual + costo;
+                lbRestante.setText(String.valueOf(nuevoRestante));
+                lbGastos.setText(String.valueOf(nuevoGasto));
+                lbRestante.setForeground(Color.black);
+                lbAdvertencia.setText("");
+            } catch (BalanceNegativeException bne) {
+                System.out.println("Error: "+bne.getMessage());
+                lbAdvertencia.setText("<html>ADVERTENCIA: "+"Estás usando más <br>dinero del asignado</html>");
+                lbRestante.setForeground(Color.RED);
+            }
 
-            lbRestante.setText(String.valueOf(nuevoRestante));
-            lbGastos.setText(String.valueOf(nuevoGasto));
-            usuario.addBalanceLeft(costo);
-            usuario.addBalanceUsed(costo);
+
             }
         });
     }
-
 
 }
