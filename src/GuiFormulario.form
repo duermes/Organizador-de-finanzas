@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GuiDemo">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GuiFormulario">
   <grid id="27dc6" binding="infoPanel" layout-manager="GridLayoutManager" row-count="7" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="15" left="20" bottom="20" right="20"/>
     <constraints>
@@ -20,6 +20,7 @@
         <properties>
           <background color="-21537"/>
           <font name="Segoe Print" size="28" style="1"/>
+          <foreground color="-985857"/>
           <text value="Calculadora de finanzas personales"/>
         </properties>
       </component>
@@ -29,6 +30,7 @@
         </constraints>
         <properties>
           <font name="Segoe Print" size="16" style="0"/>
+          <foreground color="-985857"/>
           <text value="Nombre:"/>
         </properties>
       </component>
@@ -38,6 +40,7 @@
         </constraints>
         <properties>
           <font name="Segoe Print" size="16" style="0"/>
+          <foreground color="-985857"/>
           <text value="Presupuesto:"/>
         </properties>
       </component>
@@ -47,6 +50,7 @@
         </constraints>
         <properties>
           <font name="Segoe Print" size="16" style="0"/>
+          <foreground color="-985857"/>
           <text value="(%) Ahorrar"/>
         </properties>
       </component>
@@ -56,6 +60,7 @@
         </constraints>
         <properties>
           <font name="Segoe Print" size="16" style="0"/>
+          <foreground color="-985857"/>
           <text value="N° GastosFijos mensuales"/>
         </properties>
       </component>

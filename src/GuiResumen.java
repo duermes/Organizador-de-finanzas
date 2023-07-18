@@ -21,8 +21,15 @@ public class GuiResumen {
     private JLabel lbCosto;
     private JLabel lbSave;
     private JLabel lbAdvertencia;
-    User usuario;
-
+    private JList list2;
+    private JLabel lbResumenGastosFijos;
+    private JLabel resumenGastosFijosLabel;
+    private User usuario;
+    private JFrame frameGuiResumen;
+    private GastosAdicionales gastosAdicionales = new GastosAdicionales();
+    public JFrame getFrameGuiResumen() {
+        return frameGuiResumen;
+    }
     public JLabel getTitulo() {
         return titulo;
     }
@@ -59,19 +66,21 @@ public class GuiResumen {
     public JLabel getLbBalance() {
         return lbBalance;
     }
-
     public JLabel getLbGastos() {
         return lbGastos;
     }
-
     public JLabel getLbRestante() {
         return lbRestante;
     }
     public JLabel getLbSave() {
         return lbSave;
     }
-
     public GuiResumen() {
+        frameGuiResumen = new JFrame("Resumen de Calculadora para finanzas personales");
+        frameGuiResumen.setContentPane(panel1);
+        frameGuiResumen.setSize(1200,800);
+        frameGuiResumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameGuiResumen.pack();
         aceptarButton.addActionListener(new ActionListener() {
             double nuevoRestante;
             double nuevoGasto;
@@ -81,6 +90,9 @@ public class GuiResumen {
             double montoActual = Double.parseDouble(lbRestante.getText());
             double gastosActual = Double.parseDouble(lbGastos.getText());
             try {
+                String tipo = list1.getSelectedValue().toString();
+                gastosAdicionales.almacenar(tipo);
+
                 nuevoRestante = montoActual - costo;
                 if (nuevoRestante < 0) {
                     throw new BalanceNegativeException();
@@ -92,13 +104,13 @@ public class GuiResumen {
                 lbAdvertencia.setText("");
             } catch (BalanceNegativeException bne) {
                 System.out.println("Error: "+bne.getMessage());
-                lbAdvertencia.setText("<html>ADVERTENCIA: "+"Estás usando más <br>dinero del asignado</html>");
+                lbAdvertencia.setText("<html>ADVERTENCIA: Estás usando más <br>dinero del asignado</html>");
                 lbRestante.setForeground(Color.RED);
             }
-
-
             }
         });
     }
+
+
 
 }
