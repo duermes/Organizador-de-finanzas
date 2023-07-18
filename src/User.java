@@ -4,10 +4,7 @@ public class User {
     private GastosFijos[] gastosFijos;
     private double balanceLeft;
     private double balanceUsed;
-
     private double saveUser;
-
-    //Constructores de la clase User, no incluí gastos ahí porque no sé aún cuantos gastos va a tener cada usuario
     public User(String nameUser, double balanceUser, double saveUser) {
         this.nameUser = nameUser;
         this.balanceUser = balanceUser;
@@ -19,9 +16,19 @@ public class User {
         this.nameUser = nameUser;
         this.balanceUser = balanceUser;
         this.balanceLeft = balanceUser;
-        this.saveUser = balanceUser *(0.1); //SEGÚN Google lo recomendable es ahorrar el 10% de tu sueldo
+        this.saveUser = balanceUser *(0.1);
+    }
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 
+    public void setBalanceUser(double balanceUser) {
+        this.balanceUser = balanceUser;
+    }
+
+    public void setSaveUser(double saveUser) {
+        this.saveUser = saveUser;
+    }
     public double getSaveUser() {
         return saveUser;
     }

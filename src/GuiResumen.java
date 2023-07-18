@@ -26,6 +26,7 @@ public class GuiResumen {
     private JLabel resumenGastosFijosLabel;
     private User usuario;
     private JFrame frameGuiResumen;
+    private GuiFormulario guiFormulario;
     private GastosAdicionales gastosAdicionales = new GastosAdicionales();
     public JFrame getFrameGuiResumen() {
         return frameGuiResumen;
@@ -76,11 +77,19 @@ public class GuiResumen {
         return lbSave;
     }
     public GuiResumen() {
+        usuario = guiFormulario.getUsuario();
         frameGuiResumen = new JFrame("Resumen de Calculadora para finanzas personales");
         frameGuiResumen.setContentPane(panel1);
-        frameGuiResumen.setSize(1200,800);
+        frameGuiResumen.setSize(1300,850);
         frameGuiResumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        lbSave.setText("(%) De Ahorro:"+ Double.toString(usuario.getSaveUser())+" Dinero ahorrando:"+ Double.toString(usuario.getSaveUser()));
+        getLbBalance().setText(Double.toString(usuario.getBalanceUser()));
+        getLbGastos().setText(Double.toString(usuario.getBalanceUsed()));
+        getLbRestante().setText(Double.toString(usuario.getBalanceLeft()));
+
         frameGuiResumen.pack();
+        frameGuiResumen.setVisible(true);
         aceptarButton.addActionListener(new ActionListener() {
             double nuevoRestante;
             double nuevoGasto;
