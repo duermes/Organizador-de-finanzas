@@ -9,6 +9,7 @@ public class GuiEmergente {
     private JLabel lbCostoFijo;
     private JButton enviarButton;
     private JPanel gui3Panel;
+    private JLabel lbException;
     private GuiResumen guiResumen;
     private GuiFormulario guiFormulario;
     private JFrame frameGuiEmergente;
@@ -23,7 +24,7 @@ public class GuiEmergente {
 public GuiEmergente() {
     JFrame frameEmergente = new JFrame("Calculadora para finanzas personales");
     frameEmergente.setContentPane(gui3Panel);
-    frameEmergente.setSize(400,300);
+    frameEmergente.setSize(400,400);
     frameEmergente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setFrameGuiEmergente(frameEmergente);
     frameEmergente.pack();
@@ -34,17 +35,20 @@ public GuiEmergente() {
         int i = 0;
         @Override
         public void actionPerformed(ActionEvent e) {
+            try {
+                String nombre = tfNombreFijo.getText();
+                double costo = Double.parseDouble(tfCostoFijo.getText());
+                GuiFormulario.getUsuario().setGastoFijo(i,nombre,costo);
+                tfNombreFijo.setText("");
+                tfCostoFijo.setText("");
+                i++;
 
-            String nombre = tfNombreFijo.getText();
-            double costo = Double.parseDouble(tfCostoFijo.getText());
-            GuiFormulario.getUsuario().setGastoFijo(i,nombre,costo);
-            tfNombreFijo.setText("");
-            tfCostoFijo.setText("");
-            i++;
-
-            if (i == GuiFormulario.getUsuario().getGastosFijosLength()) {
-                guiResumen = new GuiResumen();
-                frameGuiEmergente.dispose();
+                if (i == GuiFormulario.getUsuario().getGastosFijosLength()) {
+                    guiResumen = new GuiResumen();
+                    frameGuiEmergente.dispose();
+                }
+            } catch (NumberFormatException nfe) {
+                lbException.setText("Necesitas ingresar datos");
             }
         }
     });

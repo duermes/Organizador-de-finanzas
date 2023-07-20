@@ -88,11 +88,11 @@ public class GuiResumen {
 
         }
         lbResumenGastosFijos.setText("<html>"+text+"</html>");
-
         lbSave.setText("(%) De Ahorro: "+ Double.toString(usuario.getSave())+" Dinero ahorrando:"+ Double.toString(usuario.getSaveUser()));
         getLbBalance().setText(Double.toString(usuario.getBalanceUser()));
         getLbGastos().setText(Double.toString(usuario.getBalanceUsed()));
         getLbRestante().setText(Double.toString(usuario.getBalanceLeft()));
+        titulo.setText("Finanzas personales de "+usuario.getNameUser());
 
         frameGuiResumen.pack();
         frameGuiResumen.setVisible(true);

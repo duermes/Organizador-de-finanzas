@@ -16,6 +16,7 @@ public class GuiFormulario {
     private JLabel presupuesto;
     private JLabel ahorrar;
     private JLabel gastos;
+    private JLabel lbException;
     private GuiEmergente guiEmergente;
     private static GuiResumen guiResumen;
     private static User usuario;
@@ -32,15 +33,28 @@ public class GuiFormulario {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Integer.parseInt(tfGastos.getText()) != 0) {
-                    guiEmergente = new GuiEmergente();
-                    frameGuiFormulario.setVisible(false);
-                    registerInfo();
-                } else if (Integer.parseInt(tfGastos.getText()) == 0) {
-                    registerInfo();
-                    guiResumen = new GuiResumen();
-                    frameGuiFormulario.setVisible(false);
+                try {
+                    if (Integer.parseInt(tfGastos.getText()) != 0 && !tfNombre.getText().equals("") && !tfPresupuesto.getText().equals("") && !tfPresupuesto.getText().equals("0")) {
+                        guiEmergente = new GuiEmergente();
+                        frameGuiFormulario.setVisible(false);
+                        registerInfo();
+                    } else if (Integer.parseInt(tfGastos.getText()) == 0 && !tfNombre.getText().equals("") && !tfPresupuesto.getText().equals("") && !tfPresupuesto.getText().equals("0")) {
+                        registerInfo();
+                        guiResumen = new GuiResumen();
+                        frameGuiFormulario.setVisible(false);
+                    }
+                    if (tfPresupuesto.getText().equals("0")) {
+                        throw new YouAreBrokeException();
+                    }
+                } catch (YouAreBrokeException yabe) {
+                    lbException.setText("Ingresa un valor diferente a 0");
+                    System.out.println("Tu presupuesto no puede estar vacio!, excepcion: "+yabe);
                 }
+                catch (NumberFormatException nfe) {
+                    lbException.setText("Necesitas ingresar datos");
+                    System.out.println("Hay espacios que no han sido llenados");
+                }
+
             }
         });
         salirButton.addActionListener(new ActionListener() {
@@ -57,12 +71,8 @@ public class GuiFormulario {
         int ahorrar = Integer.parseInt(tfAhorrar.getText());
         int cantidadGastosF = Integer.parseInt(tfGastos.getText());
 
-        if (tfAhorrar.getText().isEmpty()) {
-            usuario = new User(nombre,balance);
-
-        } else {
             usuario = new User(nombre,balance,ahorrar);
-        }
+
         usuario.setGastosFijosLength(cantidadGastosF);
     }
 }

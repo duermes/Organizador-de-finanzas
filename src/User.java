@@ -14,14 +14,6 @@ public class User {
         this.saveUser = balanceUser *(saveUser /100);
         this.balanceLeft = this.balanceUser -this.saveUser;
     }
-
-     public User(String nameUser, double balanceUser) {
-        this.nameUser = nameUser;
-        this.balanceUser = balanceUser;
-        this.balanceLeft = balanceUser-saveUser;
-        this.saveUser = balanceUser *(0.1);
-
-    }
     public double getSave() {
         return save;
     }
@@ -88,21 +80,5 @@ public class User {
     public GastosFijos getGastoFijo(int i) {
         return gastosFijos[i];
     }
-    public void saveMoney() {
-
-    }
-    public void resumen() {
-        //resumen de gastos mensuales que realiza organizados de mayor a menor segun el peso
-        //Dinero restante que queda libre
-        if (balanceUsed < 0) {
-            //si gastos excede presupuesto mensual
-
-        } else {
-            //si sobra dinero
-        }
-    }
-
-
-
 
 }
