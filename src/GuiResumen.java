@@ -21,7 +21,7 @@ public class GuiResumen {
     private JLabel lbCosto;
     private JLabel lbSave;
     private JLabel lbAdvertencia;
-    private JList list2;
+    private JLabel listhGastos;
     private JLabel lbResumenGastosFijos;
     private JLabel resumenGastosFijosLabel;
     private User usuario;
@@ -99,6 +99,7 @@ public class GuiResumen {
         aceptarButton.addActionListener(new ActionListener() {
             double nuevoRestante;
             double nuevoGasto;
+            String text = "";
             @Override
             public void actionPerformed(ActionEvent e){
             double costo = Double.parseDouble(tfCosto.getText());
@@ -112,6 +113,8 @@ public class GuiResumen {
                     throw new BalanceNegativeException();
                 }
                 nuevoGasto = gastosActual + costo;
+                text += tipo+": "+costo+"<br>";
+                listhGastos.setText("<html>"+text+"</html>");
                 lbRestante.setText(String.valueOf(nuevoRestante));
                 lbGastos.setText(String.valueOf(nuevoGasto));
                 lbRestante.setForeground(Color.black);

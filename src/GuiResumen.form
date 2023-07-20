@@ -187,18 +187,22 @@
           <grid row="0" column="17" row-span="9" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-12954252"/>
+          <background color="-985857"/>
         </properties>
         <border type="none"/>
         <children>
-          <component id="faff0" class="javax.swing.JList" binding="list2" default-binding="true">
+          <component id="43f91" class="javax.swing.JLabel" binding="listhGastos">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="50"/>
               </grid>
             </constraints>
             <properties>
-              <font name="Segoe Print"/>
+              <font name="Segoe Print" size="11"/>
+              <foreground color="-15987699"/>
+              <text value=""/>
+              <verticalAlignment value="1"/>
+              <verticalTextPosition value="0"/>
             </properties>
           </component>
           <component id="aef5c" class="javax.swing.JLabel">
@@ -207,7 +211,7 @@
             </constraints>
             <properties>
               <font name="Segoe Print"/>
-              <foreground color="-985857"/>
+              <foreground color="-15987699"/>
               <text value="Historial de gastos:"/>
             </properties>
           </component>
