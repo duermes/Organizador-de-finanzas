@@ -80,10 +80,16 @@ public class GuiResumen {
         usuario = guiFormulario.getUsuario();
         frameGuiResumen = new JFrame("Resumen de Calculadora para finanzas personales");
         frameGuiResumen.setContentPane(panel1);
-        frameGuiResumen.setSize(1300,850);
+        frameGuiResumen.setSize(1300,950);
         frameGuiResumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        String text = "";
+        for (int i=0;i < usuario.getGastosFijosLength();i++) {
+            text += usuario.getGastoFijo(i).getNombre()+": "+usuario.getGastoFijo(i).getCosto()+"<br>";
 
-        lbSave.setText("(%) De Ahorro:"+ Double.toString(usuario.getSaveUser())+" Dinero ahorrando:"+ Double.toString(usuario.getSaveUser()));
+        }
+        lbResumenGastosFijos.setText("<html>"+text+"</html>");
+
+        lbSave.setText("(%) De Ahorro: "+ Double.toString(usuario.getSave())+" Dinero ahorrando:"+ Double.toString(usuario.getSaveUser()));
         getLbBalance().setText(Double.toString(usuario.getBalanceUser()));
         getLbGastos().setText(Double.toString(usuario.getBalanceUsed()));
         getLbRestante().setText(Double.toString(usuario.getBalanceLeft()));
@@ -101,7 +107,6 @@ public class GuiResumen {
             try {
                 String tipo = list1.getSelectedValue().toString();
                 gastosAdicionales.almacenar(tipo);
-
                 nuevoRestante = montoActual - costo;
                 if (nuevoRestante < 0) {
                     throw new BalanceNegativeException();
@@ -113,7 +118,7 @@ public class GuiResumen {
                 lbAdvertencia.setText("");
             } catch (BalanceNegativeException bne) {
                 System.out.println("Error: "+bne.getMessage());
-                lbAdvertencia.setText("<html>ADVERTENCIA: Estás usando más <br>dinero del asignado</html>");
+                lbAdvertencia.setText("<html>ADVERTENCIA: Estás usando más dinero del asignado</html>");
                 lbRestante.setForeground(Color.RED);
             }
             }

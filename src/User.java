@@ -5,7 +5,10 @@ public class User {
     private double balanceLeft;
     private double balanceUsed;
     private double saveUser;
+    private int length;
+    private double save;
     public User(String nameUser, double balanceUser, double saveUser) {
+        save = saveUser;
         this.nameUser = nameUser;
         this.balanceUser = balanceUser;
         this.saveUser = balanceUser *(saveUser /100);
@@ -15,8 +18,12 @@ public class User {
      public User(String nameUser, double balanceUser) {
         this.nameUser = nameUser;
         this.balanceUser = balanceUser;
-        this.balanceLeft = balanceUser;
+        this.balanceLeft = balanceUser-saveUser;
         this.saveUser = balanceUser *(0.1);
+
+    }
+    public double getSave() {
+        return save;
     }
     public void setNameUser(String nameUser) {
         this.nameUser = nameUser;
@@ -56,35 +63,30 @@ public class User {
     }
 
     public void setGastosFijosLength(int length) {
+        this.length = length;
         gastosFijos = new GastosFijos[length];
         for (int i = 0; i < gastosFijos.length; i++) {
             gastosFijos[i] = new GastosFijos();
             gastosFijos[i].setNombre("nombre");
             gastosFijos[i].setCosto(0);
-            gastosFijos[i].setPeso(0);
         }
     }
+    public double getGastosFijosLength() {
+        return length;
+    }
 
-    public void setGastoFijo(int i, String nombre, double costo, int peso) {
+    public void setGastoFijo(int i, String nombre, double costo) {
         balanceLeft -= costo;
         balanceUsed += costo;
         gastosFijos[i].setNombre(nombre);
         gastosFijos[i].setCosto(costo);
-        gastosFijos[i].setPeso(peso);
-
     }
-    public void changePeso(int i, int peso) {
-        gastosFijos[i].setPeso(peso);
+    public GastosFijos[] getGastosFijos() {
+        return gastosFijos;
     }
-    public void getGastosFijos() {
-        System.out.println("Dinero restante: "+ balanceLeft);
-        System.out.println("Dinero usado: "+ balanceUsed);
-        for (int i = 0; i < gastosFijos.length; i++) {
-            System.out.println(gastosFijos[i].getNombre());
-            System.out.println("costo: "+ gastosFijos[i].getCosto());
-            System.out.println("peso: "+ gastosFijos[i].getPeso());
 
-        }
+    public GastosFijos getGastoFijo(int i) {
+        return gastosFijos[i];
     }
     public void saveMoney() {
 

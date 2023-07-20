@@ -10,8 +10,9 @@ public class GuiEmergente {
     private JButton enviarButton;
     private JPanel gui3Panel;
     private GuiResumen guiResumen;
-    GuiFormulario guiFormulario;
+    private GuiFormulario guiFormulario;
     private JFrame frameGuiEmergente;
+    private User usuario;
     public void setFrameGuiEmergente(JFrame frameGuiEmergente) {
         this.frameGuiEmergente = frameGuiEmergente;
     }
@@ -27,12 +28,24 @@ public GuiEmergente() {
     setFrameGuiEmergente(frameEmergente);
     frameEmergente.pack();
     frameEmergente.setVisible(true);
+    usuario = GuiFormulario.getUsuario();
 
     enviarButton.addActionListener(new ActionListener() {
+        int i = 0;
         @Override
         public void actionPerformed(ActionEvent e) {
-            guiResumen = new GuiResumen();
-            frameGuiEmergente.dispose();
+
+            String nombre = tfNombreFijo.getText();
+            double costo = Double.parseDouble(tfCostoFijo.getText());
+            GuiFormulario.getUsuario().setGastoFijo(i,nombre,costo);
+            tfNombreFijo.setText("");
+            tfCostoFijo.setText("");
+            i++;
+
+            if (i == GuiFormulario.getUsuario().getGastosFijosLength()) {
+                guiResumen = new GuiResumen();
+                frameGuiEmergente.dispose();
+            }
         }
     });
 }

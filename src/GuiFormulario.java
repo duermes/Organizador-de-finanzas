@@ -32,9 +32,15 @@ public class GuiFormulario {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                guiEmergente = new GuiEmergente();
-                frameGuiFormulario.setVisible(false);
-                registerInfo();
+                if (Integer.parseInt(tfGastos.getText()) != 0) {
+                    guiEmergente = new GuiEmergente();
+                    frameGuiFormulario.setVisible(false);
+                    registerInfo();
+                } else if (Integer.parseInt(tfGastos.getText()) == 0) {
+                    registerInfo();
+                    guiResumen = new GuiResumen();
+                    frameGuiFormulario.setVisible(false);
+                }
             }
         });
         salirButton.addActionListener(new ActionListener() {
