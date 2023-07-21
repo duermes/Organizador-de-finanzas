@@ -38,17 +38,24 @@ public GuiEmergente() {
             try {
                 String nombre = tfNombreFijo.getText();
                 double costo = Double.parseDouble(tfCostoFijo.getText());
-                GuiFormulario.getUsuario().setGastoFijo(i,nombre,costo);
-                tfNombreFijo.setText("");
-                tfCostoFijo.setText("");
-                i++;
+                if (costo >= GuiFormulario.getUsuario().getBalanceLeft()) {
+                    throw new YouAreBrokeException();
+                } else {
+                    GuiFormulario.getUsuario().setGastoFijo(i,nombre,costo);
+                    tfNombreFijo.setText("");
+                    tfCostoFijo.setText("");
+                    i++;
+                    if (i == GuiFormulario.getUsuario().getGastosFijosLength()) {
+                        guiResumen = new GuiResumen();
+                        frameGuiEmergente.dispose();
+                    }
 
-                if (i == GuiFormulario.getUsuario().getGastosFijosLength()) {
-                    guiResumen = new GuiResumen();
-                    frameGuiEmergente.dispose();
                 }
             } catch (NumberFormatException nfe) {
                 lbException.setText("Necesitas ingresar datos");
+            } catch (YouAreBrokeException se) {
+                lbException.setText("Estas sobrepasando tu dinero");
+                System.out.println(se);
             }
         }
     });

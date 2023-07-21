@@ -7,12 +7,14 @@ public class User {
     private double saveUser;
     private int length;
     private double save;
-    public User(String nameUser, double balanceUser, double saveUser) {
-        save = saveUser;
-        this.nameUser = nameUser;
-        this.balanceUser = balanceUser;
-        this.saveUser = balanceUser *(saveUser /100);
-        this.balanceLeft = this.balanceUser -this.saveUser;
+    public User(String name, double balance, double save) {
+        if (save >= 0 && save <= 100) {
+            this.save = save;
+            this.nameUser = name;
+            this.balanceUser = balance;
+            this.saveUser = balance *(save /100);
+            this.balanceLeft = this.balanceUser -this.saveUser;
+        }
     }
     public double getSave() {
         return save;

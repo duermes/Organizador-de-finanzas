@@ -33,8 +33,12 @@ public class GuiFormulario {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int ahorrar = Integer.parseInt(tfAhorrar.getText());
                 try {
-                    if (Integer.parseInt(tfGastos.getText()) != 0 && !tfNombre.getText().equals("") && !tfPresupuesto.getText().equals("") && !tfPresupuesto.getText().equals("0")) {
+                    if (ahorrar < 0 || ahorrar > 100) {
+                        throw new SaveException();
+                    }
+                    if (Integer.parseInt(tfGastos.getText()) != 0 && !tfNombre.getText().equals("") && !tfPresupuesto.getText().equals("") && !tfPresupuesto.getText().equals("0")){
                         guiEmergente = new GuiEmergente();
                         frameGuiFormulario.setVisible(false);
                         registerInfo();
@@ -53,6 +57,9 @@ public class GuiFormulario {
                 catch (NumberFormatException nfe) {
                     lbException.setText("Necesitas ingresar datos");
                     System.out.println("Hay espacios que no han sido llenados");
+                } catch (SaveException se) {
+                    lbException.setText("Ingrsa un valor valido a ahorrar");
+                    System.out.println(se);
                 }
 
             }
@@ -66,13 +73,13 @@ public class GuiFormulario {
     }
 
     private void registerInfo() {
-        String nombre = tfNombre.getText();
-        double balance = Double.parseDouble(tfPresupuesto.getText());
         int ahorrar = Integer.parseInt(tfAhorrar.getText());
-        int cantidadGastosF = Integer.parseInt(tfGastos.getText());
-
+            String nombre = tfNombre.getText();
+            double balance = Double.parseDouble(tfPresupuesto.getText());
+            int cantidadGastosF = Integer.parseInt(tfGastos.getText());
             usuario = new User(nombre,balance,ahorrar);
+            usuario.setGastosFijosLength(cantidadGastosF);
 
-        usuario.setGastosFijosLength(cantidadGastosF);
+
     }
 }

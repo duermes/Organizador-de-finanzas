@@ -24,6 +24,9 @@ public class GuiResumen {
     private JLabel listhGastos;
     private JLabel lbResumenGastosFijos;
     private JLabel resumenGastosFijosLabel;
+    private JTextField tfAnadirDinero;
+    private JButton limpiarButton;
+    private JButton aceptarButton1;
     private User usuario;
     private JFrame frameGuiResumen;
     private GuiFormulario guiFormulario;
@@ -88,7 +91,7 @@ public class GuiResumen {
 
         }
         lbResumenGastosFijos.setText("<html>"+text+"</html>");
-        lbSave.setText("(%) De Ahorro: "+ Double.toString(usuario.getSave())+" Dinero ahorrando:"+ Double.toString(usuario.getSaveUser()));
+        lbSave.setText("(%) De Ahorro: "+ Double.toString(usuario.getSave())+" Dinero ahorrando: "+ Double.toString(usuario.getSaveUser()));
         getLbBalance().setText(Double.toString(usuario.getBalanceUser()));
         getLbGastos().setText(Double.toString(usuario.getBalanceUsed()));
         getLbRestante().setText(Double.toString(usuario.getBalanceLeft()));
@@ -96,34 +99,88 @@ public class GuiResumen {
 
         frameGuiResumen.pack();
         frameGuiResumen.setVisible(true);
-        aceptarButton.addActionListener(new ActionListener() {
+        aceptarButton.addActionListener(new ActionListener(){
             double nuevoRestante;
             double nuevoGasto;
             String text = "";
+
             @Override
             public void actionPerformed(ActionEvent e){
-            double costo = Double.parseDouble(tfCosto.getText());
-            double montoActual = Double.parseDouble(lbRestante.getText());
-            double gastosActual = Double.parseDouble(lbGastos.getText());
-            try {
-                String tipo = list1.getSelectedValue().toString();
-                gastosAdicionales.almacenar(tipo);
-                nuevoRestante = montoActual - costo;
-                if (nuevoRestante < 0) {
-                    throw new BalanceNegativeException();
+                double costo;
+                double montoActual = Double.parseDouble(lbRestante.getText());
+                double gastosActual = Double.parseDouble(lbGastos.getText());
+                try {
+                    if (list1.getSelectedValue() == null) {
+                        throw new NothingException();
+                    } else {
+                        costo = Double.parseDouble(tfCosto.getText());
+                    }
+                    if (costo == 0) {
+                        throw new Costo0Exception();
+                    }
+                    String costoTrim = tfCosto.getText().trim();
+                    if (costoTrim.isEmpty()) {
+                        throw new NoCostoException();
+                    }
+
+                    String tipo = list1.getSelectedValue().toString();
+                    gastosAdicionales.almacenar(tipo);
+                    nuevoRestante = montoActual - costo;
+                    if (nuevoRestante < 0) {
+                        throw new BalanceNegativeException();
+                    }
+                    nuevoGasto = gastosActual + costo;
+                    text += tipo+": "+costo+"<br>";
+                    listhGastos.setText("<html>"+text+"</html>");
+                    lbRestante.setText(String.valueOf(nuevoRestante));
+                    lbGastos.setText(String.valueOf(nuevoGasto));
+                    lbRestante.setForeground(Color.black);
+                    lbAdvertencia.setText("");
+                    tfCosto.setText("");
+
+                } catch (NothingException ex) {
+                    lbAdvertencia.setText("Debes de seleccionar una opcion");
+                    System.out.println("Oops, no se selecciono nada, excepcion: "+ex);
+                }  catch (Costo0Exception nce) {
+                    lbAdvertencia.setText("Has ingresado un costo de 0, es invalido");
+                    System.out.println("Exception: "+nce);
+                } catch (BalanceNegativeException bne) {
+                    System.out.println("Error: "+bne.getMessage());
+                    lbAdvertencia.setText("<html>ADVERTENCIA: Estás usando más dinero del asignado</html>");
+                    lbRestante.setForeground(Color.RED);
+                }  catch (NoCostoException nce) {
+                    lbAdvertencia.setText("Debes de ingresar un costo");
+                } catch (NumberFormatException nfe) {
+                    lbAdvertencia.setText("Debes ingresar un valor valido");
                 }
-                nuevoGasto = gastosActual + costo;
-                text += tipo+": "+costo+"<br>";
-                listhGastos.setText("<html>"+text+"</html>");
-                lbRestante.setText(String.valueOf(nuevoRestante));
-                lbGastos.setText(String.valueOf(nuevoGasto));
-                lbRestante.setForeground(Color.black);
-                lbAdvertencia.setText("");
-            } catch (BalanceNegativeException bne) {
-                System.out.println("Error: "+bne.getMessage());
-                lbAdvertencia.setText("<html>ADVERTENCIA: Estás usando más dinero del asignado</html>");
-                lbRestante.setForeground(Color.RED);
             }
+        });
+        aceptarButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Double dinero = Double.parseDouble(tfAnadirDinero.getText());
+                    if (dinero == 0) {
+                        throw new Costo0Exception();
+                    }
+                    double montoActual = Double.parseDouble(lbRestante.getText());
+                    double BalanceActual = Double.parseDouble(lbBalance.getText());
+                    double montoNuevo = montoActual+dinero;
+                    double balanceNuevo = BalanceActual+dinero;
+                    lbRestante.setText(String.valueOf(montoNuevo));
+                    lbBalance.setText(String.valueOf(balanceNuevo));
+                    tfAnadirDinero.setText("");
+                } catch (Costo0Exception c0e) {
+                    lbAdvertencia.setText("Ingresa un numero mayor a 0");
+                } catch (NumberFormatException nfe) {
+                    lbAdvertencia.setText("Ingresa un valor valido");
+                }
+            }
+        });
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listhGastos.setText("");
             }
         });
     }
