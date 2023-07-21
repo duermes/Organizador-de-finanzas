@@ -3,30 +3,20 @@
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="12" column-count="18" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="15" left="20" bottom="15" right="20"/>
     <constraints>
-      <xy x="20" y="20" width="1053" height="596"/>
+      <xy x="20" y="20" width="1134" height="600"/>
     </constraints>
     <properties>
-      <background color="-12954252"/>
+      <background color="-2561067"/>
     </properties>
     <border type="none"/>
     <children>
-      <component id="76e09" class="javax.swing.JLabel" binding="titulo">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="17" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Segoe Print" size="28" style="1"/>
-          <foreground color="-985857"/>
-          <text value="Finanzas personales de"/>
-        </properties>
-      </component>
       <grid id="ef9a8" binding="hola" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="50" right="10"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="17" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-985857"/>
+          <background color="-1057"/>
           <foreground color="-15987699"/>
         </properties>
         <border type="line">
@@ -39,8 +29,8 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Segoe Print" size="18"/>
-              <foreground color="-15987699"/>
+              <font name="Tahoma" size="18"/>
+              <foreground color="-13093066"/>
               <text value="Presupuesto mensual"/>
             </properties>
           </component>
@@ -49,8 +39,8 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Segoe Print" size="18"/>
-              <foreground color="-15987699"/>
+              <font name="Tahoma" size="18"/>
+              <foreground color="-13093066"/>
               <text value="Gastos"/>
             </properties>
           </component>
@@ -59,8 +49,8 @@
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Segoe Print" size="18"/>
-              <foreground color="-15987699"/>
+              <font name="Tahoma" size="18"/>
+              <foreground color="-13093066"/>
               <text value="Restante"/>
             </properties>
           </component>
@@ -71,8 +61,8 @@
               </grid>
             </constraints>
             <properties>
-              <font name="Segoe Print" size="18"/>
-              <foreground color="-15987699"/>
+              <font name="Tahoma" size="18"/>
+              <foreground color="-13093066"/>
               <text value=""/>
             </properties>
           </component>
@@ -83,8 +73,8 @@
               </grid>
             </constraints>
             <properties>
-              <font name="Segoe Print" size="18"/>
-              <foreground color="-15987699"/>
+              <font name="Tahoma" size="18"/>
+              <foreground color="-13093066"/>
               <text value=""/>
             </properties>
           </component>
@@ -95,8 +85,8 @@
               </grid>
             </constraints>
             <properties>
-              <font name="Segoe Print" size="18"/>
-              <foreground color="-15987699"/>
+              <font name="Tahoma" size="18"/>
+              <foreground color="-13093066"/>
               <text value=""/>
             </properties>
           </component>
@@ -112,8 +102,8 @@
           <grid row="4" column="0" row-span="5" col-span="3" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe Print" size="16"/>
-          <foreground color="-985857"/>
+          <font name="Tahoma"/>
+          <foreground color="-13093066"/>
           <text value="Añadir gasto:"/>
         </properties>
       </component>
@@ -127,20 +117,9 @@
           <grid row="4" column="5" row-span="4" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe Print" size="16"/>
-          <foreground color="-985857"/>
+          <font name="Tahoma" size="18"/>
+          <foreground color="-13093066"/>
           <text value="Costo:"/>
-        </properties>
-      </component>
-      <component id="49d04" class="javax.swing.JTextField" binding="tfCosto">
-        <constraints>
-          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties>
-          <background color="-985857"/>
-          <font name="Segoe Print" size="16"/>
         </properties>
       </component>
       <component id="7e160" class="javax.swing.JLabel" binding="lbSave">
@@ -148,8 +127,8 @@
           <grid row="3" column="0" row-span="1" col-span="17" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe Print" size="12"/>
-          <foreground color="-985857"/>
+          <font name="Tahoma"/>
+          <foreground color="-13093066"/>
           <text value="Actualmente estás ahorrando el 10%: cantidad"/>
         </properties>
       </component>
@@ -163,10 +142,10 @@
           <component id="ae65" class="javax.swing.JList" binding="list1" default-binding="true">
             <constraints/>
             <properties>
-              <background color="-14338230"/>
+              <background color="-1057"/>
               <dropMode value="USE_SELECTION"/>
-              <font name="Segoe Print" size="12"/>
-              <foreground color="-985857"/>
+              <font name="Tahoma"/>
+              <foreground color="-13093066"/>
               <layoutOrientation value="2"/>
               <model>
                 <item value="Comida"/>
@@ -182,12 +161,12 @@
         </children>
       </scrollpane>
       <grid id="ed8ee" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="10" left="10" bottom="0" right="0"/>
+        <margin top="10" left="10" bottom="0" right="10"/>
         <constraints>
           <grid row="0" column="17" row-span="9" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-985857"/>
+          <background color="-1057"/>
         </properties>
         <border type="none"/>
         <children>
@@ -198,8 +177,9 @@
               </grid>
             </constraints>
             <properties>
-              <font name="Segoe Print" size="11"/>
-              <foreground color="-15987699"/>
+              <background color="-1057"/>
+              <font name="Tahoma"/>
+              <foreground color="-13093066"/>
               <text value=""/>
               <verticalAlignment value="1"/>
               <verticalTextPosition value="0"/>
@@ -210,9 +190,9 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font name="Segoe Print"/>
-              <foreground color="-15987699"/>
-              <text value="Historial de gastos:"/>
+              <font name="Tahoma" size="18"/>
+              <foreground color="-13093066"/>
+              <text value="Historial de gastos"/>
             </properties>
           </component>
         </children>
@@ -222,7 +202,9 @@
         <constraints>
           <grid row="6" column="6" row-span="3" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-1057"/>
+        </properties>
         <border type="none" title=""/>
         <children>
           <component id="1345e" class="javax.swing.JLabel" binding="resumenGastosFijosLabel">
@@ -232,6 +214,8 @@
               </grid>
             </constraints>
             <properties>
+              <font name="Tahoma"/>
+              <foreground color="-13093066"/>
               <text value="Resumen de gastos fijos:"/>
             </properties>
           </component>
@@ -242,6 +226,8 @@
               </grid>
             </constraints>
             <properties>
+              <font name="Tahoma"/>
+              <foreground color="-13093066"/>
               <text value="&lt;html&gt;nombre: precio&lt;br&gt; nombre: precio &lt;br&gt; nombre: precio &lt;br&gt; nombre: precio &lt;br&gt; nombre: precio &lt;/html&gt;"/>
             </properties>
           </component>
@@ -252,10 +238,10 @@
           <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-985857"/>
+          <background color="-6267763"/>
           <enabled value="true"/>
-          <font name="Segoe Print" size="14" style="0"/>
-          <foreground color="-15987699"/>
+          <font name="Arial" size="12"/>
+          <foreground color="-985857"/>
           <horizontalAlignment value="0"/>
           <text value="Aceptar"/>
           <verticalAlignment value="0"/>
@@ -266,8 +252,8 @@
           <grid row="11" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe Print" size="16"/>
-          <foreground color="-985857"/>
+          <font name="Tahoma"/>
+          <foreground color="-13093066"/>
           <text value="Añadir dinero:"/>
         </properties>
       </component>
@@ -277,14 +263,18 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <foreground color="-13093066"/>
+        </properties>
       </component>
       <component id="46b23" class="javax.swing.JButton" binding="limpiarButton" default-binding="true">
         <constraints>
           <grid row="9" column="17" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe Print"/>
+          <background color="-6267763"/>
+          <font name="Arial" size="12"/>
+          <foreground color="-985857"/>
           <text value="Limpiar"/>
         </properties>
       </component>
@@ -293,7 +283,9 @@
           <grid row="11" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe Print" size="11"/>
+          <background color="-6267763"/>
+          <font name="Arial" size="12"/>
+          <foreground color="-985857"/>
           <text value="Aceptar"/>
         </properties>
       </component>
@@ -302,9 +294,44 @@
           <grid row="11" column="6" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Segoe Print" size="11"/>
-          <foreground color="-5371112"/>
+          <font name="Arial" size="12"/>
+          <foreground color="-980200"/>
           <text value=""/>
+        </properties>
+      </component>
+      <grid id="bc40" binding="jpTitulo" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="17" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-6267763"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="76e09" class="javax.swing.JLabel" binding="titulo">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-21537"/>
+              <font name="Arial" size="28" style="3"/>
+              <foreground color="-985857"/>
+              <text value="Finanzas personales de"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="49d04" class="javax.swing.JTextField" binding="tfCosto">
+        <constraints>
+          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-985857"/>
+          <font name="Tahoma"/>
+          <foreground color="-13093066"/>
         </properties>
       </component>
     </children>

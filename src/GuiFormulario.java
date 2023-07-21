@@ -17,6 +17,7 @@ public class GuiFormulario {
     private JLabel ahorrar;
     private JLabel gastos;
     private JLabel lbException;
+    private JPanel jptitulo;
     private GuiEmergente guiEmergente;
     private static GuiResumen guiResumen;
     private static User usuario;
@@ -33,10 +34,14 @@ public class GuiFormulario {
         enviarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int ahorrar = Integer.parseInt(tfAhorrar.getText());
                 try {
+                    int ahorrar = Integer.parseInt(tfAhorrar.getText());
+                    double balance = Double.parseDouble(tfPresupuesto.getText());
                     if (ahorrar < 0 || ahorrar > 100) {
                         throw new SaveException();
+                    }
+                    if (balance < 0) {
+                        throw new YouAreBrokeException();
                     }
                     if (Integer.parseInt(tfGastos.getText()) != 0 && !tfNombre.getText().equals("") && !tfPresupuesto.getText().equals("") && !tfPresupuesto.getText().equals("0")){
                         guiEmergente = new GuiEmergente();
@@ -51,7 +56,7 @@ public class GuiFormulario {
                         throw new YouAreBrokeException();
                     }
                 } catch (YouAreBrokeException yabe) {
-                    lbException.setText("Ingresa un valor diferente a 0");
+                    lbException.setText("Ingresa un valor diferente o menor a 0");
                     System.out.println("Tu presupuesto no puede estar vacio!, excepcion: "+yabe);
                 }
                 catch (NumberFormatException nfe) {

@@ -27,6 +27,7 @@ public class GuiResumen {
     private JTextField tfAnadirDinero;
     private JButton limpiarButton;
     private JButton aceptarButton1;
+    private JPanel jpTitulo;
     private User usuario;
     private JFrame frameGuiResumen;
     private GuiFormulario guiFormulario;
@@ -79,18 +80,19 @@ public class GuiResumen {
     public JLabel getLbSave() {
         return lbSave;
     }
+    String text2 = "";
     public GuiResumen() {
         usuario = guiFormulario.getUsuario();
         frameGuiResumen = new JFrame("Resumen de Calculadora para finanzas personales");
         frameGuiResumen.setContentPane(panel1);
         frameGuiResumen.setSize(1300,950);
         frameGuiResumen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        String text = "";
+        String text1 = "";
         for (int i=0;i < usuario.getGastosFijosLength();i++) {
-            text += usuario.getGastoFijo(i).getNombre()+": "+usuario.getGastoFijo(i).getCosto()+"<br>";
+            text1 += usuario.getGastoFijo(i).getNombre()+": "+usuario.getGastoFijo(i).getCosto()+"<br>";
 
         }
-        lbResumenGastosFijos.setText("<html>"+text+"</html>");
+        lbResumenGastosFijos.setText("<html>"+text1+"</html>");
         lbSave.setText("(%) De Ahorro: "+ Double.toString(usuario.getSave())+" Dinero ahorrando: "+ Double.toString(usuario.getSaveUser()));
         getLbBalance().setText(Double.toString(usuario.getBalanceUser()));
         getLbGastos().setText(Double.toString(usuario.getBalanceUsed()));
@@ -102,7 +104,7 @@ public class GuiResumen {
         aceptarButton.addActionListener(new ActionListener(){
             double nuevoRestante;
             double nuevoGasto;
-            String text = "";
+
 
             @Override
             public void actionPerformed(ActionEvent e){
@@ -130,8 +132,8 @@ public class GuiResumen {
                         throw new BalanceNegativeException();
                     }
                     nuevoGasto = gastosActual + costo;
-                    text += tipo+": "+costo+"<br>";
-                    listhGastos.setText("<html>"+text+"</html>");
+                    text2 += tipo+": "+costo+"<br>";
+                    listhGastos.setText("<html>"+ text2 +"</html>");
                     lbRestante.setText(String.valueOf(nuevoRestante));
                     lbGastos.setText(String.valueOf(nuevoGasto));
                     lbRestante.setForeground(Color.black);
@@ -181,6 +183,7 @@ public class GuiResumen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 listhGastos.setText("");
+                text2 = "";
             }
         });
     }
